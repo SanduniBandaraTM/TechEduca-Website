@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>Registration Form</title>
+	 <script>
+		function printError(Id, Msg) {
+    document.getElementById(Id).innerHTML = Msg;
+}
+
+function validateForm() {
+
+    var name = document.Form.name.value;
+    var password = document.Form.password.value;
+    
+
+    var nameErr =  passwordErr = true;
+    
+
+    if(name == "") {
+        printError("nameErr", "Please enter your name");
+        var elem = document.getElementById("name");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("nameErr", "Please enter a valid name");
+            var elem = document.getElementById("name");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+            var elem = document.getElementById("name");
+            elem.classList.add("input-1");
+            elem.classList.remove("input-2");
+
+            
+        }
+    }
+    
+
+    if(name == "") {
+        printError("passwordErr", "Please enter your password");
+        var elem = document.getElementById("password");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(password) === false) {
+            printError("passwordErr", "Please enter your password");
+            var elem = document.getElementById("password");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+        } else {
+            printError("passwordErr", "");
+            passwordErr = false;
+            var elem = document.getElementById("password");
+            elem.classList.add("input-1");
+            elem.classList.remove("input-2");
+
+            
+        }
+    }
+    
+ 
+    
+    if((nameErr || passwordErr ) == true) {
+        
+       return false;
+    } 
+    alert("Form Submitted Successfully!");
+    
+    return true;
+};
+	 </script>
+
+	 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"> 
+
+ <link rel="stylesheet" href="style.css"> 
+ 
+ </head>
+ <body>
+     
+    <nav>
+	    <img src="images/logo.svg" alt=""> 
+        <div class="navigation">
+           <ul>
+		      <li><a href="index.html">Home</a></li>
+			  <li><a href="about.html">About</a></li>
+			  <li><a href="blog.html">Blog</a></li>
+			  <li><a href="course.html">Courses</a></li>
+			  <li><a href="contact.html">Contact</a></li> 
+			  </ul>
+		
+	</nav>  
+
+ 
+    <section id="home">  
+      <section> 
+        <h2>Login Form</h2>
+		<form name="Form" onsubmit="return validateForm()" >
+			<div class="box">
+                
+				<label>Full Name</label>
+				<input type="text" name="name" id="name">
+				<div class="error" id="nameErr"></div>
+			</div>
+			
+            <label>Password</label>
+				<input type="text" name="password" id="password">
+				<div class="error" id="passwordErr"></div>
+			</div>
+			<div class="box">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+				
+		
+	  </section>  
+
+
+     </section>
+
+
+    
+<footer>
+	<div class="footer-col">
+		<h3>RESOURCES</h3>
+		<li>Projects</li>
+        <li>Interview Challenges</li>
+		<li>Docs</li>
+		<li>Cheatsheets</li>
+		<li>Articles</li>
+	</div>
+	<div class="footer-col">
+		<h3>COMMUNITY</h3>
+		<li>Forums</li>
+        <li>Discord</li>
+		<li>Chapters</li>
+		<li>Events</li>
+	</div>
+	<div class="footer-col">
+		<h3>TOP PRODUCTS</h3>
+		<li>Management Reoutation</li>
+        <li>Power Tools</li>
+		<li>Managed Website</li>
+		<li>Marketing Service</li>
+	</div>
+	<div class="footer-col">
+		<h3>PLANS</h3>
+		<li>Business Solutions</li>
+        <li>Paid Memberships</li>
+		<li>Career Center</li>
+		<li>Videos</li>
+	</div>
+	<div class="footer-col">
+		<h3>News Letter</h3>
+		<p>You can trust us. We only send promo offers.</p>
+		<div class="subscribe">
+			<input type="text" placeholder="Your Email Address">
+            <br>
+			<a href="#" class="yellow">SUBSCRIBE</a> 
+
+		</div>
+
+	</div>
+
+	<div class="copyright">
+		<p>Copyright ©2022 All rights reserved</p>
+	<div class="pro-links">
+		<i class="fab fa-facebook-f"></i>
+		<i class="fab fa-instagram"></i>
+		<i class="fab fa-linkedin"></i>
+	</div>
+	</div>
+</footer>
+ 
+ 
+ </body>
+ 
+ 
+ <html>

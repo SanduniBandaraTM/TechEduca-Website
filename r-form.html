@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>Registration Form</title>
+	 <script>
+		function printError(Id, Msg) {
+    document.getElementById(Id).innerHTML = Msg;
+}
+
+function validateForm() {
+
+    var name = document.Form.name.value;
+    var email = document.Form.email.value;
+    var mobile = document.Form.mobile.value;
+    var country = document.Form.country.value;
+    var gender = document.Form.gender.value;
+    
+
+    var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
+    
+
+    if(name == "") {
+        printError("nameErr", "Please enter your name");
+        var elem = document.getElementById("name");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("nameErr", "Please enter a valid name");
+            var elem = document.getElementById("name");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+            var elem = document.getElementById("name");
+            elem.classList.add("input-1");
+            elem.classList.remove("input-2");
+
+            
+        }
+    }
+    
+
+    if(email == "") {
+        printError("emailErr", "Please enter your email address");
+         var elem = document.getElementById("email");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+    } else {
+        
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(email) === false) {
+            printError("emailErr", "Please enter a valid email address");
+            var elem = document.getElementById("email");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+        } else{
+            printError("emailErr", "");
+            emailErr = false;
+             var elem = document.getElementById("email");
+            elem.classList.add("input-1");
+            elem.classList.remove("input-2");
+
+        }
+    }
+    
+ 
+    if(mobile == "") {
+        printError("mobileErr", "Please enter your mobile number");
+        var elem = document.getElementById("mobile");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+    } else {
+        var regex = /^[0-9]\d{9}$/;
+        if(regex.test(mobile) === false) {
+            printError("mobileErr", "Please enter a valid 10 digit mobile number");
+            var elem = document.getElementById("mobile");
+            elem.classList.add("input-2");
+            elem.classList.remove("input-1");
+        } else{
+            printError("mobileErr", "");
+            mobileErr = false;
+            var elem = document.getElementById("mobile");
+            elem.classList.add("input-1");
+            elem.classList.remove("input-2");
+        }
+    }
+    
+
+    if(country == "Select") {
+        printError("countryErr", "Please select your country");
+        var elem = document.getElementById("country");
+            elem.classList.add("input-4");
+            elem.classList.remove("input-3");
+    } else {
+        printError("countryErr", "");
+        countryErr = false;
+        var elem = document.getElementById("country");
+            elem.classList.add("input-3");
+            elem.classList.remove("input-4");
+    }
+    
+
+    if(gender == "") {
+        printError("genderErr", "Please select your gender");
+        var elem = document.getElementById("gender");
+            elem.classList.add("input-4");
+            elem.classList.remove("input-3");
+    } else {
+        printError("genderErr", "");
+        genderErr = false;
+        var elem = document.getElementById("gender");
+            elem.classList.add("input-3");
+            elem.classList.remove("input-4");
+    }
+    
+    
+    if((nameErr || emailErr || mobileErr || countryErr || genderErr) == true) {
+        
+       return false;
+    } 
+    alert("Form Submitted Successfully!");
+    
+    return true;
+};
+	 </script>
+
+	 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"> 
+
+ <link rel="stylesheet" href="style.css"> 
+ 
+ </head>
+ <body>
+     
+    <nav>
+	    <img src="images/logo.svg" alt=""> 
+        <div class="navigation">
+           <ul>
+		      <li><a href="index.html">Home</a></li>
+			  <li><a href="about.html">About</a></li>
+			  <li><a href="blog.html">Blog</a></li>
+			  <li><a href="course.html">Courses</a></li>
+			  <li><a href="contact.html">Contact</a></li> 
+			  </ul>
+		
+	</nav>  
+
+ 
+    <section id="home">  
+      <section> 
+        <h2>Registration Form</h2>
+		<form name="Form" onsubmit="return validateForm()" >
+			<div class="box">
+                
+				<label>Full Name</label>
+				<input type="text" name="name" id="name">
+				<div class="error" id="nameErr"></div>
+			</div>
+			<div class="box">
+				<label>Email Address</label>
+				<input type="text" name="email" id="email">
+				<div class="error" id="emailErr"></div>
+			</div>
+			<div class="box">
+				<label>Mobile Number</label>
+				<input type="text" name="mobile" maxlength="10" id="mobile">
+				<div class="error" id="mobileErr"></div>
+			</div>
+			<div class="box">
+				<label>Country</label>
+				<select name="country" id="country">
+					<option>Select</option>
+					<option>London</option>
+					<option>India</option>
+					<option>America</option>
+                    <option>Southern Europe</option>
+                    <option>Angola</option>
+                    <option>SriLanka</option>
+               
+            
+				</select> 
+				<div class="error" id="countryErr"></div>
+			</div>
+			<div class="box">
+				<label>Gender</label>
+				<div class="form-inline" id="gender">
+					<label><input type="radio" name="gender" value="male"> Male</label>
+					<label><input type="radio" name="gender" value="female"> Female</label> 
+				</div>
+				<div class="error" id="genderErr"></div>
+			</div>
+				  
+			<div class="box">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+				
+		
+	  </section>  
+
+
+     </section>
+
+
+    
+<footer>
+	<div class="footer-col">
+		<h3>RESOURCES</h3>
+		<li>Projects</li>
+        <li>Interview Challenges</li>
+		<li>Docs</li>
+		<li>Cheatsheets</li>
+		<li>Articles</li>
+	</div>
+	<div class="footer-col">
+		<h3>COMMUNITY</h3>
+		<li>Forums</li>
+        <li>Discord</li>
+		<li>Chapters</li>
+		<li>Events</li>
+	</div>
+	<div class="footer-col">
+		<h3>TOP PRODUCTS</h3>
+		<li>Management Reoutation</li>
+        <li>Power Tools</li>
+		<li>Managed Website</li>
+		<li>Marketing Service</li>
+	</div>
+	<div class="footer-col">
+		<h3>PLANS</h3>
+		<li>Business Solutions</li>
+        <li>Paid Memberships</li>
+		<li>Career Center</li>
+		<li>Videos</li>
+	</div>
+	<div class="footer-col">
+		<h3>News Letter</h3>
+		<p>You can trust us. We only send promo offers.</p>
+		<div class="subscribe">
+			<input type="text" placeholder="Your Email Address">
+            <br>
+			<a href="#" class="yellow">SUBSCRIBE</a> 
+
+		</div>
+
+	</div>
+
+	<div class="copyright">
+		<p>Copyright ©2022 All rights reserved</p>
+	<div class="pro-links">
+		<i class="fab fa-facebook-f"></i>
+		<i class="fab fa-instagram"></i>
+		<i class="fab fa-linkedin"></i>
+	</div>
+	</div>
+</footer>
+ 
+ 
+ </body>
+ 
+ 
+ <html>
