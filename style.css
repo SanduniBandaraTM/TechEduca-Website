@@ -936,13 +936,13 @@ input[type=text]{
 
 
 .input-1{
-	background-image: url(../images/check.png);
+	background-image: url(check.png);
 	background-repeat: no-repeat;
 	background-position: right 10px center;
 	border:1px solid #01cc40;
 }
 .input-2{
-	background-image: url(../images/cancel.png);
+	background-image: url(cancel.png);
 	background-repeat: no-repeat;
 	background-position: right 10px center;
 	border:1px solid red;
@@ -1040,13 +1040,13 @@ select{
 		}
 		
 		.input-1{
-			background-image: url(../images/check.png);
+			background-image: url(check.png);
 			background-repeat: no-repeat;
 			background-position: right 10px center;
 			border:1px solid #01cc40;
 		}
 		.input-2{
-			background-image: url(../images/cancel.png);
+			background-image: url(cancel.png);
 			background-repeat: no-repeat;
 			background-position: right 10px center;
 			border:1px solid red;
